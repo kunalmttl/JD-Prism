@@ -48,7 +48,7 @@ export async function getAggregatedInsights(jds: JobDescription[]): Promise<Aggr
   }));
 
   const response = await ai.models.generateContent({
-    model: "gemini-3.1-pro-preview",
+    model: "gemini-3-flash-preview",
     contents: `Analyze these ${jds.length} job descriptions and provide aggregated insights for a student preparing for interviews.
     Identify common skills, prioritize study topics based on frequency and importance across these companies, and provide an overall summary.
     
@@ -56,7 +56,6 @@ export async function getAggregatedInsights(jds: JobDescription[]): Promise<Aggr
     ${JSON.stringify(jdContext, null, 2)}
     `,
     config: {
-      thinkingConfig: { thinkingLevel: ThinkingLevel.HIGH },
       responseMimeType: "application/json",
       responseSchema: {
         type: Type.OBJECT,
