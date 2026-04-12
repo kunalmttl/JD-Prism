@@ -102,11 +102,11 @@ export default function App() {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-3"
           >
-            <div className="bg-accent-amber p-2 rounded-xl shadow-md">
+            <div className="bg-accent-gray p-2 rounded-xl shadow-md">
               <GraduationCap className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold tracking-tight font-display">JD <span className="text-accent-amber">Prism</span></h1>
+              <h1 className="text-2xl font-bold tracking-tight font-display">JD <span className="text-accent-gray">Prism</span></h1>
               <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-slate-400">Career Intelligence</p>
             </div>
           </motion.div>
@@ -145,14 +145,14 @@ export default function App() {
                   initial={{ scale: 0.9, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.2 }}
-                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-amber/10 text-[11px] font-bold uppercase tracking-widest text-accent-amber border-2 border-accent-amber/20"
+                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-gray/10 text-[11px] font-bold uppercase tracking-widest text-accent-gray border-2 border-accent-gray/20"
                 >
                   <Sparkles className="w-3 h-3" />
                   AI-Powered Analysis
                 </motion.div>
                 <h2 className="text-6xl font-bold tracking-tighter lg:text-7xl font-display leading-[1.1] text-slate-900">
                   Refract your <br />
-                  <span className="text-accent-amber">career potential.</span>
+                  <span className="text-accent-gray">career potential.</span>
                 </h2>
                 <p className="text-xl text-slate-500 max-w-xl mx-auto font-medium leading-relaxed">
                   Upload your target job descriptions and let JD Prism distill the common patterns into a colorful, prioritized study roadmap.
@@ -165,9 +165,9 @@ export default function App() {
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-12">
                 {[
-                  { icon: FileText, title: "Deep Extraction", desc: "Advanced LLM analysis of technical requirements and hidden soft skills.", color: "bg-accent-amber/10 text-accent-amber" },
-                  { icon: Sparkles, title: "Pattern Recognition", desc: "Identify the 'Golden Skills' requested by multiple top-tier companies.", color: "bg-accent-amber/10 text-accent-amber" },
-                  { icon: LayoutDashboard, title: "Priority Roadmap", desc: "A data-driven study plan that maximizes your interview success rate.", color: "bg-accent-amber/10 text-accent-amber" }
+                  { icon: FileText, title: "Deep Extraction", desc: "Advanced LLM analysis of technical requirements and hidden soft skills.", color: "bg-accent-gray/10 text-accent-gray" },
+                  { icon: Sparkles, title: "Pattern Recognition", desc: "Identify the 'Golden Skills' requested by multiple top-tier companies.", color: "bg-accent-gray/10 text-accent-gray" },
+                  { icon: LayoutDashboard, title: "Priority Roadmap", desc: "A data-driven study plan that maximizes your interview success rate.", color: "bg-accent-gray/10 text-accent-gray" }
                 ].map((feature, i) => (
                   <motion.div 
                     key={i}
@@ -196,7 +196,7 @@ export default function App() {
               <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
                 <div className="flex items-center justify-between mb-10 flex-wrap gap-6 border-b-2 border-slate-100 pb-6">
                   <TabsList className="bg-slate-100 p-1.5 rounded-2xl h-14">
-                    <TabsTrigger value="dashboard" className="rounded-xl px-8 data-[state=active]:bg-white data-[state=active]:text-accent-amber data-[state=active]:shadow-md font-bold text-sm transition-all">
+                    <TabsTrigger value="dashboard" className="rounded-xl px-8 data-[state=active]:bg-white data-[state=active]:text-accent-gray data-[state=active]:shadow-md font-bold text-sm transition-all">
                       <LayoutDashboard className="w-4 h-4 mr-2" />
                       Intelligence
                     </TabsTrigger>
@@ -224,7 +224,7 @@ export default function App() {
                     <div className="h-[500px] flex flex-col items-center justify-center space-y-6">
                       <div className="relative">
                         <Loader2 className="w-16 h-16 animate-spin text-slate-200" />
-                        <Sparkles className="w-6 h-6 text-accent-amber absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse" />
+                        <Sparkles className="w-6 h-6 text-accent-gray absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse" />
                       </div>
                       <div className="text-center space-y-2">
                         <h3 className="text-2xl font-bold font-display text-slate-900">Refracting Insights...</h3>

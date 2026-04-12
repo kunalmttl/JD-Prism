@@ -66,11 +66,11 @@ export function FileUpload({ onJDsAnalyzed }: FileUploadProps) {
         
         <label 
           htmlFor="file-upload"
-          className={`flex flex-col items-center justify-center p-12 rounded-3xl border-2 border-dashed transition-all cursor-pointer bg-white hover:bg-slate-50 hover:border-accent-amber/40 ${
+          className={`flex flex-col items-center justify-center p-12 rounded-3xl border-2 border-dashed transition-all cursor-pointer bg-white hover:bg-slate-50 hover:border-accent-gray/40 ${
             isUploading ? 'opacity-50 pointer-events-none' : 'border-slate-200'
           }`}
         >
-          <div className="bg-accent-amber text-white p-4 rounded-2xl mb-4 shadow-lg shadow-accent-amber/20 group-hover:scale-110 transition-transform duration-500">
+          <div className="bg-accent-gray text-white p-4 rounded-2xl mb-4 shadow-lg shadow-accent-gray/20 group-hover:scale-110 transition-transform duration-500">
             <Upload className="w-6 h-6" />
           </div>
           <div className="text-center space-y-1">
@@ -114,7 +114,7 @@ export function FileUpload({ onJDsAnalyzed }: FileUploadProps) {
             </div>
             
             <Button 
-              className="w-full h-14 rounded-2xl text-base font-bold bg-accent-amber hover:bg-accent-amber/90 text-white shadow-lg shadow-accent-amber/20 transition-all active:scale-[0.98]" 
+              className="w-full h-14 rounded-2xl text-base font-bold bg-accent-gray hover:bg-accent-gray/90 text-white shadow-lg shadow-accent-gray/20 transition-all active:scale-[0.98]" 
               onClick={processFiles} 
               disabled={isUploading}
             >

@@ -18,14 +18,14 @@ export function InsightsDashboard({ insights }: InsightsDashboardProps) {
     <div className="space-y-10">
       <section className="space-y-4">
         <div className="flex items-center gap-3 mb-2">
-          <div className="p-2 bg-accent-amber text-white rounded-xl shadow-lg shadow-accent-amber/20">
+          <div className="p-2 bg-accent-gray text-white rounded-xl shadow-lg shadow-accent-gray/20">
             <Brain className="w-5 h-5" />
           </div>
           <h2 className="text-2xl font-bold font-display text-slate-900">Executive Summary</h2>
         </div>
         <Card className="rounded-3xl border-2 border-slate-100 bg-white overflow-hidden relative">
           <div className="absolute top-0 right-0 p-8 opacity-5">
-            <Sparkles className="w-32 h-32 text-accent-amber" />
+            <Sparkles className="w-32 h-32 text-accent-gray" />
           </div>
           <CardContent className="p-8 relative z-10">
             <div className="prose prose-sm max-w-none prose-p:text-slate-500 prose-p:font-medium prose-p:leading-relaxed prose-headings:font-display prose-headings:text-slate-900">
@@ -61,7 +61,7 @@ export function InsightsDashboard({ insights }: InsightsDashboardProps) {
                     </div>
                     <span className={`text-sm font-mono font-bold ${
                       item.percentage >= 80 ? 'text-accent-teal' : 
-                      item.percentage >= 50 ? 'text-primary' : 'text-accent-amber'
+                      item.percentage >= 50 ? 'text-primary' : 'text-accent-gray'
                     }`}>{item.percentage}%</span>
                   </div>
                   <div className="h-3 w-full bg-slate-100 rounded-full overflow-hidden border border-slate-200/50">
@@ -71,7 +71,7 @@ export function InsightsDashboard({ insights }: InsightsDashboardProps) {
                       transition={{ duration: 1.2, delay: 0.5 + (i * 0.1), ease: [0.22, 1, 0.36, 1] }}
                       className={`h-full rounded-full shadow-[0_0_10px_rgba(0,0,0,0.05)] ${
                         item.percentage >= 80 ? 'bg-accent-teal' : 
-                        item.percentage >= 50 ? 'bg-primary' : 'bg-accent-amber'
+                        item.percentage >= 50 ? 'bg-primary' : 'bg-accent-gray'
                       }`}
                     />
                   </div>
@@ -147,7 +147,7 @@ export function InsightsDashboard({ insights }: InsightsDashboardProps) {
                 >
                   <div className={`absolute left-[-9px] top-0 w-4 h-4 rounded-full transition-transform duration-500 group-hover:scale-125 border-2 border-white shadow-sm ${
                     item.priority === 'High' ? 'bg-accent-rose' : 
-                    item.priority === 'Medium' ? 'bg-accent-amber' : 'bg-accent-teal'
+                    item.priority === 'Medium' ? 'bg-accent-gray' : 'bg-accent-teal'
                   }`} />
                   
                   <div className="space-y-3">
@@ -155,7 +155,7 @@ export function InsightsDashboard({ insights }: InsightsDashboardProps) {
                       <h4 className="text-lg font-bold group-hover:text-primary transition-colors text-slate-800">{item.topic}</h4>
                       <Badge variant="secondary" className={`rounded-lg px-3 py-1 text-[10px] font-bold uppercase tracking-widest border-none ${
                         item.priority === 'High' ? 'bg-accent-rose/10 text-accent-rose' : 
-                        item.priority === 'Medium' ? 'bg-accent-amber/10 text-accent-amber' : 'bg-accent-teal/10 text-accent-teal'
+                        item.priority === 'Medium' ? 'bg-accent-gray/10 text-accent-gray' : 'bg-accent-teal/10 text-accent-teal'
                       }`}>
                         {item.priority} Priority
                       </Badge>

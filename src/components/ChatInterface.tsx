@@ -1,6 +1,6 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Send, Bot, User, Loader2, Trash2, MessageSquare, Command } from 'lucide-react';
+import { Send, Bot, User, Loader2, Trash2, MessageSquare, Command, FileText } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { ScrollArea } from './ui/scroll-area';
@@ -68,6 +68,10 @@ export function ChatInterface({ jds }: ChatInterfaceProps) {
             </div>
           </div>
           <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 px-3 py-1.5 bg-accent-gray/10 rounded-full border border-accent-gray/20">
+              <FileText className="w-3 h-3 text-accent-gray" />
+              <span className="text-[10px] font-bold uppercase tracking-widest text-accent-gray">{jds.length} JDs in Context</span>
+            </div>
             <div className="flex items-center gap-2 px-3 py-1.5 bg-accent-teal/10 rounded-full border border-accent-teal/20">
               <div className="w-2 h-2 rounded-full bg-accent-teal animate-pulse" />
               <span className="text-[10px] font-bold uppercase tracking-widest text-accent-teal">System Ready</span>
