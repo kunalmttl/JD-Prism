@@ -52,7 +52,7 @@ JD Prism features a **Professional Flat Design** aesthetic:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/jd-prism.git
+   git clone https://github.com/kunalmttl/JD-Prism.git
    cd jd-prism
    ```
 
