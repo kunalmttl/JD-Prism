@@ -107,8 +107,16 @@ export async function getAggregatedInsights(jds: JobDescription[]): Promise<Aggr
 }
 
 export async function chatWithGemini(messages: { role: 'user' | 'model', content: string }[], jdContext: string) {
+  // Convert messages to Gemini format for history
+  // We exclude the last message because it's the current prompt
+  const history = messages.slice(0, -1).map(m => ({
+    role: m.role === 'user' ? 'user' : 'model',
+    parts: [{ text: m.content }]
+  }));
+
   const chat = ai.chats.create({
     model: "gemini-3-flash-preview",
+    history: history as any,
     config: {
       systemInstruction: `You are a career coach helping a student prepare for interviews based on these job descriptions:
       ${jdContext}
@@ -117,29 +125,10 @@ export async function chatWithGemini(messages: { role: 'user' | 'model', content
     }
   });
 
-  // Convert messages to Gemini format
-  const history = messages.slice(0, -1).map(m => ({
-    role: m.role,
-    parts: [{ text: m.content }]
-  }));
-
   const lastMessage = messages[messages.length - 1].content;
-
   const result = await chat.sendMessage({
-    message: lastMessage,
-    // history // The SDK might handle history differently in some versions, but sendMessage usually takes the current message.
-    // Actually, ai.chats.create takes history.
+    message: lastMessage
   });
 
-  // Wait, the SDK in the skill says ai.chats.create({ model, config }). sendMessage takes { message }.
-  // Let's re-read the skill for chat history.
-  // The skill doesn't explicitly show passing history to ai.chats.create in the basic example, but it's standard.
-  // Actually, I'll just use the simple generateContent for now if I'm unsure about the exact chat history prop in this specific SDK version, 
-  // OR I'll just use the sendMessageStream if I want streaming.
-  
-  // Re-checking skill:
-  // const chat: Chat = ai.chats.create({ model: "gemini-3-flash-preview" });
-  // let streamResponse = await chat.sendMessageStream({ message: "..." });
-  
   return result.text;
 }

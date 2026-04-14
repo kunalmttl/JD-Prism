@@ -76,6 +76,9 @@ export function FileUpload({ onJDsAnalyzed }: FileUploadProps) {
           <div className="text-center space-y-1">
             <h3 className="text-lg font-bold text-slate-900">Drop your JDs here</h3>
             <p className="text-sm text-slate-400 font-medium">PDF files only • Multiple files supported</p>
+            <p className="text-[10px] text-accent-rose font-bold uppercase tracking-wider opacity-80">
+              Note: Try not to upload more than 4 JDs at once due to rate limits
+            </p>
           </div>
         </label>
       </div>
@@ -114,7 +117,11 @@ export function FileUpload({ onJDsAnalyzed }: FileUploadProps) {
             </div>
             
             <Button 
-              className="w-full h-14 rounded-2xl text-base font-bold bg-accent-gray hover:bg-accent-gray/90 text-white shadow-lg shadow-accent-gray/20 transition-all active:scale-[0.98]" 
+              className={`w-full h-14 rounded-2xl text-base font-bold shadow-lg transition-all active:scale-[0.98] ${
+                files.length > 4 
+                  ? 'bg-accent-rose hover:bg-accent-rose/90 shadow-accent-rose/20' 
+                  : 'bg-accent-gray hover:bg-accent-gray/90 shadow-accent-gray/20'
+              } text-white`}
               onClick={processFiles} 
               disabled={isUploading}
             >
@@ -126,10 +133,15 @@ export function FileUpload({ onJDsAnalyzed }: FileUploadProps) {
               ) : (
                 <>
                   <Sparkles className="w-5 h-5 mr-3" />
-                  Analyze {files.length} Document{files.length > 1 ? 's' : ''}
+                  {files.length > 4 ? `Analyze ${files.length} Documents (Rate Limit Risk)` : `Analyze ${files.length} Document${files.length > 1 ? 's' : ''}`}
                 </>
               )}
             </Button>
+            {files.length > 4 && (
+              <p className="text-center text-[10px] font-bold text-accent-rose uppercase tracking-widest animate-pulse">
+                Warning: High volume may trigger Gemini rate limits
+              </p>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

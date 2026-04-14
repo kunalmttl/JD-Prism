@@ -155,7 +155,8 @@ export default function App() {
                   <span className="text-accent-gray">career potential.</span>
                 </h2>
                 <p className="text-xl text-slate-500 max-w-xl mx-auto font-medium leading-relaxed">
-                  Upload your target job descriptions and let JD Prism distill the common patterns into a colorful, prioritized study roadmap.
+                  Upload your target job descriptions and let JD Prism distill the common patterns into a prioritized study roadmap.
+        
                 </p>
               </div>
 
